@@ -70,6 +70,35 @@ section h3 {
   color: #0066cc;
 }
 
+/* Participants section inside activity card */
+.activity-card .participants-section {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #ffd1b3; /* peach border */
+  background-color: #fff2e6;     /* peach background */
+  border-radius: 4px;
+}
+
+.activity-card .participants-section h5 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #ff8c42; /* peach heading */
+  font-weight: 600;
+}
+
+.activity-card .participants-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 0;
+  color: #b85c38; /* darker peach text */
+  font-size: 15px;
+}
+
+.activity-card .participants-list li {
+  margin-bottom: 4px;
+  padding-left: 2px;
+}
+
 .activity-card p {
   margin-bottom: 8px;
 }
