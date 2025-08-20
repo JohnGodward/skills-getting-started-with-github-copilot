@@ -20,11 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Rename "chess club" to "super chess club" for display
+        const displayName = name.toLowerCase() === "chess club" ? "Super Chess Club" : name;
+
+        // Build participants list HTML
+        let participantsHTML = `
+          <div class="participants-section">
+            <h5>Participants</h5>
+            <ul class="participants-list">
+              ${
+                details.participants.length > 0
+                  ? details.participants.map(
+                      participant => `<li>${participant}</li>`
+                    ).join("")
+                  : `<li><em>No participants yet</em></li>`
+              }
+            </ul>
+          </div>
+        `;
+
         activityCard.innerHTML = `
-          <h4>${name}</h4>
+          <h4>${displayName}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          ${participantsHTML}
         `;
 
         activitiesList.appendChild(activityCard);
@@ -32,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add option to select dropdown
         const option = document.createElement("option");
         option.value = name;
-        option.textContent = name;
+        option.textContent = displayName;
         activitySelect.appendChild(option);
       });
     } catch (error) {
